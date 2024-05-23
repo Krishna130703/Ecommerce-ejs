@@ -14,10 +14,15 @@ const productApi = require("./routes/api/productapi"); //api
 const passport = require("passport"); //pass
 const LocalStrategy = require("passport-local"); //pass
 const User = require("./models/User"); //pass
+require('dotenv').config();
 
+// const DB = "mongodb+srv://krishna130703:vc3L_Znwp5NMP8p@cluster0.9q4qmez.mongodb.net/krishna130703?retryWrites=true&w=majority&appName=Cluster0";
 mongoose.set("strictQuery", true);
 mongoose
-  .connect("mongodb://127.0.0.1:27017/websoldiers")
+// .connect(DB)
+.connect(process.env.DB)
+
+
   .then(() => {
     console.log("DB connected");
   })
